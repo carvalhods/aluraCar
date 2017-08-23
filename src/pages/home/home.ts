@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -14,13 +14,24 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private _http: Http
+    private _http: Http,
+    private _loadingCtrl: LoadingController
   ) {
+
+    let loader = this._loadingCtrl.create({
+      content: 'Buscando novos carros, aguarde...'
+    });
+
+    loader.present();
+
     this._http
       .get('https://aluracar.herokuapp.com')
       .map(res => res.json())
       .toPromise()
-      .then(carros => this.carros = carros);
+      .then(carros => {
+        loader.dismiss();
+        this.carros = carros
+      });
   }
 
 }
