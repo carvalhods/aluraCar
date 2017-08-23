@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   public carros;
 
@@ -17,8 +17,9 @@ export class HomePage {
     private _http: Http,
     private _loadingCtrl: LoadingController,
     private _alertCtrl: AlertController
-  ) {
+  ) {}
 
+  ngOnInit() {
     let loader = this._loadingCtrl.create({
       content: 'Buscando novos carros, aguarde...'
     });
@@ -32,7 +33,8 @@ export class HomePage {
       .then(carros => {
         this.carros = carros;
         loader.dismiss();
-      }, err => {
+      })
+      .catch(err => {
         console.log(err);
         loader.dismiss();
         this._alertCtrl
