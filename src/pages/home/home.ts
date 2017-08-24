@@ -4,6 +4,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { EscolhaPage } from '../escolha/escolha';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -46,6 +48,10 @@ export class HomePage implements OnInit {
             subTitle: 'Não foi possível obter a lista de carros, tente mais tarde'
           }).present();
       })
+  }
+
+  seleciona(carro) {
+    this.navCtrl.push(EscolhaPage, { carroSelecionado: carro });
   }
 
 }
