@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 import { EscolhaPage } from '../escolha/escolha';
+import { Carro } from '../../domain/carro/carro';
 
 @Component({
   selector: 'page-home',
@@ -12,14 +13,15 @@ import { EscolhaPage } from '../escolha/escolha';
 })
 export class HomePage implements OnInit {
 
-  public carros;
+  public carros: Carro[];
 
   constructor(
     public navCtrl: NavController,
     private _http: Http,
     private _loadingCtrl: LoadingController,
     private _alertCtrl: AlertController
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     let loader = this._loadingCtrl.create({
@@ -50,7 +52,7 @@ export class HomePage implements OnInit {
       })
   }
 
-  seleciona(carro) {
+  seleciona(carro: Carro) {
     this.navCtrl.push(EscolhaPage, { carroSelecionado: carro });
   }
 
