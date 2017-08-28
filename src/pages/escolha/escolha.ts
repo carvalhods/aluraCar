@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 
 import { Acessorio } from '../../domain/carro/acessorio';
 import { Carro } from '../../domain/carro/carro';
+import { CadastroPage } from '../cadastro/cadastro';
 
 @Component({
   templateUrl: 'escolha.html'
@@ -14,7 +15,10 @@ export class EscolhaPage implements OnInit {
   public acessorios: Acessorio[];
   private _precoTotal: number;
 
-  constructor(public navParams: NavParams) {
+  constructor(
+    public navParams: NavParams,
+    public navCtrl: NavController
+  ) {
   }
 
   ngOnInit() {
@@ -37,4 +41,10 @@ export class EscolhaPage implements OnInit {
       this._precoTotal -= acessorio.preco;
   }
 
+  avancaNoAgendamento() {
+    this.navCtrl.push(CadastroPage, {
+      carro: this.carro,
+      precoTotal: this.precoTotal
+    });
+  }
 }

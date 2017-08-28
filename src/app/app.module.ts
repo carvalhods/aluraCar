@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EscolhaPage } from '../pages/escolha/escolha';
+import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { EscolhaPage } from '../pages/escolha/escolha';
   imports: [
     BrowserModule,
     HttpModule,
+    CadastroPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
