@@ -44,10 +44,10 @@ export class HomePage implements OnInit {
         this._alertCtrl
           .create({
             title: 'Falha na conexão',
+            subTitle: 'Não foi possível obter a lista de carros, tente mais tarde',
             buttons: [{
               text: 'Estou ciente!'
-            }],
-            subTitle: 'Não foi possível obter a lista de carros, tente mais tarde'
+            }]
           }).present();
       })
   }
