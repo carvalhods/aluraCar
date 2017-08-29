@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Storage } from '@ionic/storage';
 
 import { Agendamento } from "./agendamento";
 import { AgendamentoDao } from './agendamento-dao';
@@ -10,7 +9,6 @@ export class AgendamentoService {
 
   constructor(
     private _http: Http,
-    private _storage: Storage,
     private _dao: AgendamentoDao
   ) {
   }
