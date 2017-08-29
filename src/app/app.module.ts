@@ -1,32 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { EscolhaPage } from '../pages/escolha/escolha';
+import { EscolhaPageModule } from '../pages/escolha/escolha.module';
 import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    EscolhaPage
+    HomePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     CadastroPageModule,
+    EscolhaPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    EscolhaPage
+    HomePage
   ],
   providers: [
     StatusBar,

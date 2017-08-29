@@ -4,11 +4,11 @@ import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ion
 import { Carro } from "../../domain/carro/carro";
 import { Agendamento } from '../../domain/agendamento/agendamento';
 import { HomePage } from "../home/home";
-import { AgendamentoService } from '../../domain/agendamento/agendamento.service';
+import { AgendamentoService } from "../../domain/agendamento/agendamento.service";
 
 @IonicPage()
 @Component({
-  templateUrl: 'cadastro.html',
+  templateUrl: 'cadastro.html'
 })
 export class CadastroPage implements OnInit {
 
@@ -49,13 +49,15 @@ export class CadastroPage implements OnInit {
     }
 
     this._agendamentoService.agenda(this.agendamento)
-      .then(() => {
-        this._alert.setSubTitle('Agendamento realizado com sucesso');
+      .then(confirmado => {
+        confirmado ?
+          this._alert.setSubTitle('Agendamento realizado com sucesso') :
+          this._alert.setSubTitle('Não foi possível realizar o agendamento');
         this._alert.present();
       })
       .catch(err => {
-        this._alert.setSubTitle('Não foi possível realizar o agendamento');
-        this._alert.present();
+        console.log(err);
+        this._alert.setSubTitle(err.message).present();
       });
   }
 }
