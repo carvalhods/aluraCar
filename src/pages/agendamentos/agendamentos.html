@@ -6,7 +6,7 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item *ngFor="let agendamento of agendamentos">
+        <ion-item [class.falha]="!agendamento.confirmado" *ngFor="let agendamento of agendamentos">
           {{agendamento.carro.nome}} - {{agendamento.valor}}
         </ion-item>
     </ion-list>

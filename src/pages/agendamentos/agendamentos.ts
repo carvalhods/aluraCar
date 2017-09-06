@@ -6,6 +6,7 @@ import { AgendamentoDao } from "../../domain/agendamento/agendamento-dao";
 
 @IonicPage()
 @Component({
+  selector: 'page-agendamentos',
   templateUrl: 'agendamentos.html',
 })
 export class AgendamentosPage {
@@ -14,7 +15,7 @@ export class AgendamentosPage {
   public agendamentos: Agendamento[];
 
   constructor(
-      public navCtrl: NavController, 
+      public navCtrl: NavController,
       public navParams: NavParams,
       private _agendamentoDao: AgendamentoDao) {
 

@@ -31,7 +31,6 @@ export class AgendamentoDao {
 
   listaTodos() {
     let agendamentos: Agendamento[] = [];
-
     return this._storage.forEach(dado => {
         let carro = new Carro(dado.carro.nome, dado.carro.preco);
         let agendamento = new Agendamento(
