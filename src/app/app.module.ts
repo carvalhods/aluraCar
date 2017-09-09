@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { EscolhaPageModule } from '../pages/escolha/escolha.module';
 import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 import { AgendamentosPageModule } from '../pages/agendamentos/agendamentos.module';
+import { LoginPageModule } from '../pages/login/login.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AgendamentosPageModule } from '../pages/agendamentos/agendamentos.modul
     CadastroPageModule,
     EscolhaPageModule,
     AgendamentosPageModule,
+    LoginPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
