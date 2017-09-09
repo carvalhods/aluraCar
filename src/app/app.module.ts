@@ -11,6 +11,7 @@ import { EscolhaPageModule } from '../pages/escolha/escolha.module';
 import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 import { AgendamentosPageModule } from '../pages/agendamentos/agendamentos.module';
 import { LoginPageModule } from '../pages/login/login.module';
+import { PerfilPageModule } from "../pages/perfil/perfil.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoginPageModule } from '../pages/login/login.module';
     EscolhaPageModule,
     AgendamentosPageModule,
     LoginPageModule,
+    PerfilPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
