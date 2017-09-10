@@ -6,6 +6,14 @@ import { CadastroPage } from './cadastro';
 import { AgendamentoService } from "../../domain/agendamento/agendamento.service";
 import { AgendamentoDao } from "../../domain/agendamento/agendamento-dao";
 
+export function storageFactory() {
+  return new Storage({
+    driverOrder: ['indexeddb'],
+    name: 'aluracar',
+    storeName: 'agendamentos'
+  })
+}
+
 @NgModule({
   declarations: [
     CadastroPage,
@@ -14,13 +22,10 @@ import { AgendamentoDao } from "../../domain/agendamento/agendamento-dao";
     IonicPageModule.forChild(CadastroPage),
   ],
   providers: [
-    {provide: Storage, useFactory: () => {
-      return new Storage({
-        driverOrder: ['indexeddb'],
-        name: 'aluracar',
-        storeName: 'agendamentos'
-      })
-    }},
+    {
+      provide: Storage,
+      useFactory: storageFactory
+    },
     AgendamentoService,
     AgendamentoDao
   ]
