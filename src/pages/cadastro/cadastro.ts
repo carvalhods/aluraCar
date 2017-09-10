@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
+import { Vibration } from '@ionic-native/vibration';
 
 import { Carro } from "../../domain/carro/carro";
 import { Agendamento } from '../../domain/agendamento/agendamento';
@@ -21,7 +22,8 @@ export class CadastroPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private _alertCtrl: AlertController,
-    private _agendamentoService: AgendamentoService
+    private _agendamentoService: AgendamentoService,
+    private _vibration: Vibration
   ) {
   }
 
@@ -38,6 +40,9 @@ export class CadastroPage implements OnInit {
 
   agenda() {
     if(!this.agendamento.nome || !this.agendamento.email || !this.agendamento.endereco) {
+
+      this._vibration.vibrate(500);
+
       this._alertCtrl.create({
         title: 'Preenchimento obrigatório',
         subTitle: 'Você deve preencher todas as informações',
