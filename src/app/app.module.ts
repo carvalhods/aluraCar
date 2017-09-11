@@ -8,7 +8,7 @@ import { Vibration } from '@ionic-native/vibration';
 import { Camera } from '@ionic-native/camera';
 import { DatePicker } from '@ionic-native/date-picker';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { AppMinimize } from '@ionic-native/app-minimize';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -45,7 +45,7 @@ import { PerfilPageModule } from "../pages/perfil/perfil.module";
     Camera,
     DatePicker,
     LocalNotifications,
-    AppMinimize,
+    BackgroundMode,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
