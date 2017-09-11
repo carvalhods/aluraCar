@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 import { Vibration } from '@ionic-native/vibration';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { Carro } from "../../domain/carro/carro";
 import { Agendamento } from '../../domain/agendamento/agendamento';
@@ -23,7 +24,8 @@ export class CadastroPage implements OnInit {
     public navParams: NavParams,
     private _alertCtrl: AlertController,
     private _agendamentoService: AgendamentoService,
-    private _vibration: Vibration
+    private _vibration: Vibration,
+    private _datePicker: DatePicker
   ) {
   }
 
@@ -64,5 +66,13 @@ export class CadastroPage implements OnInit {
         console.log(err);
         this._alert.setSubTitle(err.message).present();
       });
+  }
+
+  selecionaData() {
+    this._datePicker.show({
+      date: new Date(),
+      mode: 'date'
+    })
+    .then(date => this.agendamento.data = date.toISOString())
   }
 }
