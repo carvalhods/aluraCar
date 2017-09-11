@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
 import { Camera } from '@ionic-native/camera';
 import { DatePicker } from '@ionic-native/date-picker';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { AppMinimize } from '@ionic-native/app-minimize';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -42,6 +44,8 @@ import { PerfilPageModule } from "../pages/perfil/perfil.module";
     Vibration,
     Camera,
     DatePicker,
+    LocalNotifications,
+    AppMinimize,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

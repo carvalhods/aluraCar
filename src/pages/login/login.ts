@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { HomePage } from "../home/home";
 import { UsuarioService } from "../../domain/usuario/usuario.service";
@@ -18,8 +19,15 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private _usuarioService: UsuarioService,
-    private _alertCtrl: AlertController
-  ) { }
+    private _alertCtrl: AlertController,
+    private _localNotif: LocalNotifications
+  ) {
+    // this._localNotif.schedule({
+    //   id: 1,
+    //   text: 'Single notification',
+    //   at: new Date(new Date().getTime() + 20000)
+    // });
+  }
 
   efetuaLogin() {
     this._usuarioService.efetuaLogin(this.email, this.senha)
